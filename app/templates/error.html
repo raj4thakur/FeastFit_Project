@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}{{ status }} · {{ app_name }}{% endblock %}
+{% block content %}
+<section class="container auth">
+  <div class="panel center">
+    <p class="big-num">{{ status }}</p>
+    <h1>{% if status == 404 %}This dish isn't on the menu{% else %}Something burned in the kitchen{% endif %}</h1>
+    <p class="muted">{{ message }}</p>
+    <a class="btn" href="/">Back to recipes</a>
+  </div>
+</section>
+{% endblock %}

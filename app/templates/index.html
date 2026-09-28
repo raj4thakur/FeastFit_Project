@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block page %}home{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="container hero-inner">
+    <p class="eyebrow eyebrow-light">La cucina italiana · Healthy &amp; honest</p>
+    <h1>Mangia bene,<br><em>vivi meglio.</em></h1>
+    <p class="lead">Discover diet-friendly recipes rooted in Italian tradition — and share your own family classics with the world.</p>
+    <form id="hero-search" class="hero-search">
+      <input id="q" type="search" placeholder="Search carbonara, tomato, vegan…" aria-label="Search recipes">
+      <button class="btn" type="submit">Search</button>
+    </form>
+  </div>
+</section>
+
+<section class="container section">
+  <div id="chips" class="chips"></div>
+
+  <div class="filters">
+    <select id="f-cuisine" aria-label="Cuisine"><option value="">All cuisines</option></select>
+    <select id="f-diet" aria-label="Diet"><option value="">Any diet</option></select>
+    <select id="f-difficulty" aria-label="Difficulty"><option value="">Any difficulty</option></select>
+    <select id="f-time" aria-label="Time">
+      <option value="">Any time</option><option value="20">≤ 20 min</option>
+      <option value="45">≤ 45 min</option><option value="90">≤ 90 min</option>
+    </select>
+    <select id="f-sort" aria-label="Sort">
+      <option value="newest">Newest</option><option value="quickest">Quickest</option>
+      <option value="lightest">Lightest (kcal)</option><option value="az">A → Z</option>
+    </select>
+    <button id="f-reset" class="btn btn-ghost btn-sm" type="button">Reset</button>
+  </div>
+
+  <p id="result-count" class="muted"></p>
+  <div id="grid" class="grid"></div>
+  <div id="pager" class="pager"></div>
+</section>
+{% endblock %}

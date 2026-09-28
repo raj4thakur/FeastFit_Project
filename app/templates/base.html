@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ app_name }} · Eat well, live Italian{% endblock %}</title>
+  <meta name="description" content="FeastFit — healthy recipes and diet-friendly dishes with an Italian soul.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body data-page="{% block page %}{% endblock %}" {% block body_attrs %}{% endblock %}>
+  <div class="tricolor" aria-hidden="true"><i></i><i></i><i></i></div>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="/" class="logo">Feast<span>Fit</span></a>
+      <nav id="nav-links" class="nav-links">
+        <a href="/">Recipes</a>
+        <a href="/login">Log in</a>
+        <a href="/register" class="btn btn-sm">Join free</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>{% block content %}{% endblock %}</main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="logo logo-light">Feast<span>Fit</span></div>
+      <p>Mangia bene, vivi meglio — eat well, live better.</p>
+      <p class="small">© <span id="year"></span> FeastFit by Raj Thakur · v{{ app_version }} · <a href="/docs">API docs</a></p>
+    </div>
+  </footer>
+
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

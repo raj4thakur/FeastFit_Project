@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}My kitchen · {{ app_name }}{% endblock %}
+{% block page %}profile{% endblock %}
+{% block content %}
+<section class="container section">
+  <div class="profile-head">
+    <div>
+      <h1 class="page-title" id="p-name">My kitchen</h1>
+      <p class="muted" id="p-email"></p>
+    </div>
+    <a href="/upload" class="btn">+ New recipe</a>
+  </div>
+  <div class="tabs">
+    <button class="tab active" data-tab="mine">My recipes</button>
+    <button class="tab" data-tab="saved">Saved</button>
+  </div>
+  <div id="p-grid" class="grid"></div>
+</section>
+{% endblock %}

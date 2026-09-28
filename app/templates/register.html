@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Join · {{ app_name }}{% endblock %}
+{% block page %}register{% endblock %}
+{% block content %}
+<section class="container auth">
+  <div class="panel">
+    <h1>Benvenuto a tavola</h1>
+    <p class="muted">Create your free FeastFit account.</p>
+    <form id="register-form" class="form">
+      <label>Username<input name="username" autocomplete="username" minlength="3" maxlength="30" pattern="[A-Za-z0-9_]+" required></label>
+      <label>Email<input name="email" type="email" autocomplete="email" required></label>
+      <label>Password<input name="password" type="password" autocomplete="new-password" minlength="8" required>
+        <small class="muted">At least 8 characters, with a letter and a number.</small></label>
+      <button class="btn" type="submit">Create account</button>
+    </form>
+    <p class="small">Already a member? <a href="/login">Log in</a></p>
+  </div>
+</section>
+{% endblock %}

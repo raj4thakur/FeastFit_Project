@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Share a recipe · {{ app_name }}{% endblock %}
+{% block page %}upload{% endblock %}
+{% block content %}
+<section class="container section narrow">
+  <h1 class="page-title">Share a recipe</h1>
+  <p class="muted">Add your dish with all the details — a great photo makes it shine (min 600×400 px).</p>
+
+  <form id="recipe-form" class="form panel">
+    <label>Title<input name="title" minlength="3" maxlength="160" placeholder="e.g. Nonna's Lasagna al Forno" required></label>
+    <label>Description<textarea name="description" rows="3" minlength="10" placeholder="What makes this dish special?" required></textarea></label>
+
+    <div class="row">
+      <label>Cuisine<select name="cuisine" id="u-cuisine"></select></label>
+      <label>Category<select name="category" id="u-category"></select></label>
+      <label>Difficulty<select name="difficulty" id="u-difficulty"></select></label>
+    </div>
+
+    <div class="row">
+      <label>Prep (min)<input name="prep_minutes" type="number" min="0" value="10"></label>
+      <label>Cook (min)<input name="cook_minutes" type="number" min="0" value="20"></label>
+      <label>Servings<input name="servings" type="number" min="1" value="2"></label>
+    </div>
+
+    <fieldset><legend>Nutrition per serving (optional)</legend>
+      <div class="row">
+        <label>Calories<input name="calories" type="number" min="0"></label>
+        <label>Protein (g)<input name="protein_g" type="number" min="0" step="0.1"></label>
+        <label>Carbs (g)<input name="carbs_g" type="number" min="0" step="0.1"></label>
+        <label>Fat (g)<input name="fat_g" type="number" min="0" step="0.1"></label>
+      </div>
+    </fieldset>
+
+    <fieldset><legend>Diet tags</legend><div id="u-tags" class="tag-picker"></div></fieldset>
+
+    <fieldset><legend>Ingredients</legend>
+      <div id="ing-rows"></div>
+      <button type="button" id="add-ing" class="btn btn-ghost btn-sm">+ Add ingredient</button>
+    </fieldset>
+
+    <fieldset><legend>Steps</legend>
+      <div id="step-rows"></div>
+      <button type="button" id="add-step" class="btn btn-ghost btn-sm">+ Add step</button>
+    </fieldset>
+
+    <fieldset><legend>Photo</legend>
+      <input type="file" id="photo" accept="image/jpeg,image/png,image/webp">
+      <img id="photo-preview" class="preview" alt="" hidden>
+    </fieldset>
+
+    <button class="btn" type="submit" id="publish-btn">Publish recipe</button>
+  </form>
+</section>
+{% endblock %}

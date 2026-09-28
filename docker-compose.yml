@@ -1,0 +1,33 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: feastfit
+      POSTGRES_PASSWORD: feastfit
+      POSTGRES_DB: feastfit
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U feastfit"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql+psycopg://feastfit:feastfit@db:5432/feastfit
+      # Override with a real secret: SECRET_KEY=$(openssl rand -hex 32) docker compose up
+      SECRET_KEY: ${SECRET_KEY:-docker-compose-demo-secret-please-change-me-0123456789}
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-}
+    ports:
+      - "8000:8000"
+    volumes:
+      - uploads:/data/uploads
+
+volumes:
+  pgdata:
+  uploads:

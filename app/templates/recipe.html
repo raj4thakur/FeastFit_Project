@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Recipe · {{ app_name }}{% endblock %}
+{% block page %}recipe{% endblock %}
+{% block body_attrs %}data-slug="{{ slug }}"{% endblock %}
+{% block content %}
+<div class="container section" id="recipe-root">
+  <div class="skeleton" style="height:420px"></div>
+</div>
+{% endblock %}
